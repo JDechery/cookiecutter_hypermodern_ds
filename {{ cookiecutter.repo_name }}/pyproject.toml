@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "{{ cookiecutter.repo_name }}"
+version = "0.1.0"
+description = ""
+authors = ["{{ cookiecutter.author_name }} <you@example.com>"]
+license = "{{ cookiecutter.open_source_license }}"
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+pytest-mock = "^3.10.0"
+pre-commit = "^3.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
