@@ -19,7 +19,7 @@ def no_curlies(filepath):
 
 
 @pytest.mark.usefixtures("default_baked_project")
-class TestCookieSetup(object):
+class TestCookieSetup:
     def test_project_name(self):
         project = self.path
         if pytest.param.get("project_name"):

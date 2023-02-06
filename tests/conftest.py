@@ -27,12 +27,11 @@ def default_baked_project(tmpdir_factory, request):
     temp = tmpdir_factory.mktemp("data-project")
     out_dir = Path(temp).resolve()
 
-    pytest.param = request.param
     main.cookiecutter(
-        str(CCDS_ROOT), no_input=True, extra_context=pytest.param, output_dir=out_dir
+        str(CCDS_ROOT), no_input=True, extra_context=request.param, output_dir=out_dir
     )
 
-    pn = pytest.param.get("project_name") or "project_name"
+    pn = request.param.get("project_name") or "project_name"
 
     # project name gets converted to lower case on Linux but not Mac
     pn = system_check(pn)
