@@ -15,6 +15,7 @@ python = "^3.9"
 pytest = "^7.2.1"
 pytest-mock = "^3.10.0"
 pre-commit = "^3.0.4"
+pylint = "^2.16.1"
 
 [build-system]
 requires = ["poetry-core"]

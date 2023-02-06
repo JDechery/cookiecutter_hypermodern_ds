@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements setup
+.PHONY: clean data lint setup
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -12,11 +12,6 @@ PYTHON_INTERPRETER = python3
 # COMMANDS                                                                      #
 #################################################################################
 
-## Install Python Dependencies
-requirements: test_environment
-	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
-
 ## Make Dataset
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
@@ -26,10 +21,9 @@ clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
 
-## Lint using flake8
+## Lint using pylint
 lint:
-	flake8 src
-
+	poetry run pylint src
 
 ## Set up python interpreter environment
 setup:
