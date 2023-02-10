@@ -5,7 +5,7 @@ description = ""
 authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
 license = "{{ cookiecutter.open_source_license }}"
 readme = "README.md"
-packages = [{include = "src"}]
+packages = [{include = "{{ cookiecutter.repo_name | slugify(separator='_') }}", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
