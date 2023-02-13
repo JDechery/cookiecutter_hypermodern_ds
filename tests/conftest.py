@@ -10,8 +10,8 @@ CCDS_ROOT = Path(__file__).parents[1].resolve()
 args = {
     "project_name": "DrivenData",
     "author_name": "DrivenData",
+    "author_email": "fixture@pytest.com",
     "open_source_license": "BSD-3-Clause",
-    "python_interpreter": "python",
 }
 
 
@@ -27,6 +27,7 @@ def default_baked_project(tmpdir_factory, request):
     temp = tmpdir_factory.mktemp("data-project")
     out_dir = Path(temp).resolve()
 
+    pytest.param = request.param
     main.cookiecutter(
         str(CCDS_ROOT), no_input=True, extra_context=request.param, output_dir=out_dir
     )

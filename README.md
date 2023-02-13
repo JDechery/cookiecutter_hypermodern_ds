@@ -46,21 +46,22 @@ The directory structure of your new project looks like this:
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── pyproject.toml   <- Poetry package definition
+├── pyproject.toml     <- Poetry package definition
 │
 └── src                <- Source code for use in this project.
-    ├── __init__.py    <- Makes src a Python module
-    │
-    ├── data           <- Scripts to download or generate data
-    │   └── make_dataset.py
-    │
-    ├── features       <- Scripts to turn raw data into features for modeling
-    │   └── build_features.py
-    │
-    └── models         <- Scripts to train models and then use trained models to make
-        │                 predictions
-        ├── predict_model.py
-        └── train_model.py
+    └── {project_name} <- Project dir so package is importable as `from {project_name}.data import make_dataset`
+        ├── __init__.py    <- Makes src a Python module
+        │
+        ├── data           <- Scripts to download or generate data
+        │   └── make_dataset.py
+        │
+        ├── features       <- Scripts to turn raw data into features for modeling
+        │   └── build_features.py
+        │
+        └── models         <- Scripts to train models and then use trained models to make
+            │                 predictions
+            ├── predict_model.py
+            └── train_model.py
 ```
 
 ### Installing development requirements
@@ -71,4 +72,4 @@ The directory structure of your new project looks like this:
 ### Running the tests
 ------------
 
-    pytest tests
+    pytest
